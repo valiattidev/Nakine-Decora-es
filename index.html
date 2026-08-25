@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="xcon.png">
+    <title>Nakine Decorações | Artigos de Decoração & Eventos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pagina-body">
+
+    <!-- ========================================== -->
+    <!-- CABEÇALHO / NAVBAR                         -->
+    <!-- ========================================== -->
+    <header class="cabecalho-principal">
+        <div class="cabecalho-conteudo">
+            
+            <div class="menu-logo">
+                <span class="menu-logo-texto">NAKINE</span>
+                <span class="menu-logo-subtexto">DECORAÇÕES</span>
+            </div>
+
+            <nav class="navegacao-menu">
+                <a href="#inicio" class="link-menu">Início</a>
+                <a href="#catalogo" class="link-menu">Catálogo</a>
+                <a href="#sobre" class="link-menu">Sobre Nós</a>
+                <a href="#contato" class="link-menu">Contato</a>
+            </nav>
+
+            <a href="https://wa.me/554236220190?text=Olá!%20Vim%20pelo%20site%20da%20Nakine%20e%20gostaria%20de%20solicitar%20um%20orçamento." 
+               target="_blank" 
+               class="botao-contato-topo">
+               Solicitar Orçamento
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION (SEÇÃO PRINCIPAL)             -->
+    <!-- ========================================== -->
+    <section id="inicio" class="secao-hero">
+        <div class="hero-conteudo">
+            <div class="hero-grid">
+                
+                <div class="hero-coluna-texto">
+                    <span class="hero-selo">Sofisticação & Elegância</span>
+                    <h1 class="hero-titulo">
+                        Transforme ambientes e eventos com <span class="destaque-dourado">peças exclusivas</span>.
+                    </h1>
+                    <p class="hero-descricao">
+                        Encontre os melhores artigos de decoração, suportes florais, sousplats, bandejas, castiçais e estatuetas para casamentos, festas e decoração residencial.
+                    </p>
+
+                    <div class="hero-botoes">
+                        <a href="#catalogo" class="botao-principal">Ver Catálogo Completo</a>
+                        <a href="https://wa.me/554236220190?text=Olá!%20Gostaria%20de%20falar%20com%20um%20atendente." target="_blank" class="botao-secundario">Falar com Atendente</a>
+                    </div>
+                </div>
+
+                <div class="hero-coluna-imagem">
+                    <div class="hero-card-destaque">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Decoração Nakine" class="hero-imagem">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- CATÁLOGO DE PRODUTOS                       -->
+    <!-- ========================================== -->
+    <section id="catalogo" class="secao-catalogo">
+        <div class="catalogo-conteudo">
+            
+            <div class="secao-cabecalho">
+                <span class="tag-subtitulo">Nosso Acervo</span>
+                <h2 class="secao-titulo">Catálogo em Destaque</h2>
+                <p class="secao-descricao">Explore nossa linha completa de produtos para locação e venda.</p>
+            </div>
+
+          <div class="catalogo-filtros">
+    <!-- A etiqueta 'todos' mostra tudo -->
+    <button class="btn-filtro ativo" data-categoria="todos">Todos</button>
+    
+    <!-- A etiqueta 'souplat' vai filtrar só souplats -->
+    <button class="btn-filtro" data-categoria="souplat">Mesa Posta & Sousplat</button>
+    
+    <!-- A etiqueta 'casticais' vai filtrar só castiçais -->
+    <button class="btn-filtro" data-categoria="casticais">Castiçais & Velas</button>
+
+    <!-- A etiqueta 'florais' vai filtrar só suportes florais-->
+    <button class="btn-filtro" data-categoria="florais">Suportes Florais</button>
+
+    <!--A etiqueta 'estatuetas_vasos' vai filtrar só Estatuetas e vasos-->
+    <button class="btn-filtro" data-categoria="estatuetas_vasos">Estatuetas & Vasos</button>
+</div>
+
+            <!-- Grid de Produtos -->
+            <div class="catalogo-grid">
+
+                <!-- Produto 1 -->
+                <div class="card-produto" data-categoria="souplat">
+                    <div class="wrapper-imagem-produto">
+                        <img src="img/souplat.jpg" alt="Sousplat Redondo" class="imagem-produto">
+                    </div>
+                    <div class="info-produto">
+                        <span class="categoria-produto">Mesa Posta</span>
+                        <h3 class="titulo-produto">Sousplat Redondo Valence</h3>
+                        <p class="descricao-produto">Acabamento premium em preto oxidado, ideal para composições de mesa refinadas.</p>
+                        <a href="https://wa.me/554236220190?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sousplat%20Redondo%20Valence." target="_blank" class="btn-produto-orcamento">Consultar Peça</a>
+                    </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="card-produto" data-categoria="casticais">
+                    <div class="wrapper-imagem-produto">
+                        <img src="img/candelabro.jpg" alt="Candelabro Prata" class="imagem-produto">
+                    </div>
+                    <div class="info-produto">
+                        <span class="categoria-produto">Castiçais & Velas</span>
+                        <h3 class="titulo-produto">Candelabro Clássico Linha Prata</h3>
+                        <p class="descricao-produto">Design atemporal para mesas principais de casamentos e jantares formais.</p>
+                        <a href="https://wa.me/554236220190?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Candelabro%20Clássico." target="_blank" class="btn-produto-orcamento">Consultar Peça</a>
+                    </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="card-produto" data-categoria="florais">
+                    <div class="wrapper-imagem-produto">
+                        <img src="img/florais.jpg" alt="Suporte Floral" class="imagem-produto">
+                    </div>
+                    <div class="info-produto">
+                        <span class="categoria-produto">Suportes Florais</span>
+                        <h3 class="titulo-produto">Suporte Floral Elevado Dourado</h3>
+                        <p class="descricao-produto">Estrutura alta para arranjos marcantes em centros de mesa.</p>
+                        <a href="https://wa.me/554236220190?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Suporte%20Floral%20Elevado." target="_blank" class="btn-produto-orcamento">Consultar Peça</a>
+                    </div>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="card-produto" data-categoria="estatuetas_vasos">
+                    <div class="wrapper-imagem-produto">
+                        <img src="img/vasos.jpg" alt="Estatueta Poliresina" class="imagem-produto">
+                    </div>
+                    <div class="info-produto">
+                        <span class="categoria-produto">Estatuetas & Vasos</span>
+                        <h3 class="titulo-produto">Estatueta Decorativa Poliresina</h3>
+                        <p class="descricao-produto">Peça artística moderna para decoração interna e composição de cenários.</p>
+                        <a href="https://wa.me/554236220190?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Estatueta%20Poliresina." target="_blank" class="btn-produto-orcamento">Consultar Peça</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- SOBRE NÓS                                  -->
+    <!-- ========================================== -->
+    <section id="sobre" class="secao-sobre">
+        <div class="sobre-conteudo">
+            <div class="sobre-grid">
+                
+                <div class="sobre-imagem-box">
+                    <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=800&q=80" alt="Showroom Nakine" class="sobre-imagem">
+                </div>
+
+                <div class="sobre-texto-box">
+                    <span class="tag-subtitulo">Tradição & Qualidade</span>
+                    <h2 class="secao-titulo">Sobre a Nakine Decorações</h2>
+                    <p class="texto-paragrafo">
+                        Com sede em Guarapuava - PR, a Nakine Decorações dispõe de uma grande variedade de artigos para abrilhantar celebrações e projetos de interiores.
+                    </p>
+                    <p class="texto-paragrafo">
+                        Nosso acervo conta com bandejas, candelabros, castiçais, centros de mesa, plantas permanentes, jogos americanos e suportes variados. Trabalhamos para superar as expectativas e garantir a beleza incomparável do seu evento.
+                    </p>
+
+                    <div class="sobre-destaques-grid">
+                        <div class="item-destaque">
+                            <span class="numero-destaque">+1000</span>
+                            <span class="legenda-destaque">Itens no Acervo</span>
+                        </div>
+                        <div class="item-destaque">
+                            <span class="numero-destaque">Showroom</span>
+                            <span class="legenda-destaque">Atendimento Presencial</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- RODAPÉ & CONTATO                           -->
+    <!-- ========================================== -->
+    <footer id="contato" class="rodape-principal">
+        <div class="rodape-conteudo">
+            
+            <div class="rodape-coluna">
+                <span class="menu-logo-texto cor-branca">NAKINE</span>
+                <p class="rodape-descricao">Artigos e acessórios de alto padrão para ornamentação e eventos.</p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h4 class="rodape-titulo">Contato</h4>
+                <p class="rodape-info">📍 Alcione Bastos, 413 - Guarapuava, PR</p>
+                <p class="rodape-info">📞 (42) 3622-0190</p>
+                <p class="rodape-info">✉️ nakine@nakinedecoracoes.com.br</p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h4 class="rodape-titulo">Horário de Atendimento</h4>
+                <p class="rodape-info">Segunda a Sexta: 08:30h às 18:00h</p>
+                <p class="rodape-info">Sábado: 08:30h às 12:30h</p>
+            </div>
+
+        </div>
+
+        <div class="rodape-bottom">
+            <p>© 2026 Nakine Decorações. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/554236220190?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida." target="_blank" class="whatsapp-flutuante" aria-label="Contato WhatsApp">
+        <svg viewBox="0 0 24 24" class="icone-whatsapp">
+            <path fill="currentColor" d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+        </svg>
+    </a>
+        <script>
+  // 1. Espera a página carregar toda
+  document.addEventListener('DOMContentLoaded', () => {
+      
+      // 2. Pega todos os botões e todos os cards de produtos da tela
+      const botoesFiltro = document.querySelectorAll('.btn-filtro');
+      const produtos = document.querySelectorAll('.card-produto');
+
+      // 3. Para cada botão, adiciona um "ouvinte" de clique
+      botoesFiltro.forEach(botao => {
+          botao.addEventListener('click', () => {
+              
+              // Remove a cor dourada de destaque de todos os botões
+              botoesFiltro.forEach(b => b.classList.remove('ativo'));
+              // Coloca a cor dourada de destaque no botão que acabou de ser clicado
+              botao.classList.add('ativo');
+
+              // Descobre o nome da categoria do botão clicado (ex: 'souplat', 'casticais' ou 'todos')
+              const categoriaSelecionada = botao.getAttribute('data-categoria');
+
+              // 4. Passa olhando produto por produto do catálogo
+              produtos.forEach(produto => {
+                  const categoriaProduto = produto.getAttribute('data-categoria');
+
+                  // Se for 'todos' OU a categoria do produto for igual à do botão:
+                  if (categoriaSelecionada === 'todos' || categoriaSelecionada === categoriaProduto) {
+                      produto.style.display = 'block'; // Mostra o produto
+                  } else {
+                      produto.style.display = 'none';  // Esconde o produto
+                  }
+              });
+          });
+      });
+  });
+</script>
+
+</body>
+</html>
