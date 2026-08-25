@@ -508,3 +508,19 @@ body {
     width: 28px;
     height: 28px;
 }
+
+/* Ajuste de espaçamento para telas de celular */
+@media (max-width: 768px) {
+  .cabecalho-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px; /* Cria uma distância mínima entre a logo e o botão */
+  }
+
+  .menu-logo img, 
+  .logo-img {
+    max-width: 140px; /* Reduz levemente a logo no celular para não empurrar o botão */
+    height: auto;
+  }
+}
