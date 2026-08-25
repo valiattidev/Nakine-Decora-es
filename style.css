@@ -16,6 +16,24 @@
     --transicao: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+.logo-container {
+    display: inline-block; /* Ou flex, dependendo do seu cabeçalho */
+    width: 250px;         /* Ajuste para o tamanho VISÍVEL que você deseja para a logo */
+    height: 100px;        /* Ajuste para a altura VISÍVEL que você deseja para a logo */
+    overflow: hidden;    /* Esconde o que estiver fora do container */
+    position: relative;
+}
+
+.logo-img {
+    width: 100%;          /* Faz a imagem preencher o container */
+    height: 100%;         /* Faz a imagem preencher o container */
+    object-fit: cover;   /* Esta é a mágica: ela preenche o container cortando as bordas */
+    object-position: center; /* Mantém o desenho centralizado */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 * {
     margin: 0;
     padding: 0;
