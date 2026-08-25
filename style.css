@@ -25,7 +25,7 @@
 }
 
 .logo-img {
-    width: 100%;          /* Faz a imagem preencher o container */
+    width: 90%;          /* Faz a imagem preencher o container */
     height: 100%;         /* Faz a imagem preencher o container */
     object-fit: cover;   /* Esta é a mágica: ela preenche o container cortando as bordas */
     object-position: center; /* Mantém o desenho centralizado */
@@ -50,15 +50,38 @@ body {
 /* ========================================== */
 /* CABEÇALHO / NAVBAR                         */
 /* ========================================== */
+
+/* Estilo base do seu cabeçalho */
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease; /* Faz a animação ficar suave */
+}
+
+
 .cabecalho-principal {
-    position: sticky;
     top: 0;
     z-index: 1000;
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--cor-borda);
     padding: 1.2rem 2rem;
+    position:sticky;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease; /* Faz a animação ficar suave */
 }
+
+/* Classe que esconde o cabeçalho empurrando-o para cima */
+.header-escondido {
+  transform: translateY(-100%);
+}
+
+/* Classe que esconde o cabeçalho empurrando-o para cima */
 
 .cabecalho-conteudo {
     max-width: 1200px;
@@ -66,6 +89,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    padding: 12px 16px; 
+    box-sizing: border-box;
 }
 
 .menu-logo {
@@ -507,27 +533,4 @@ body {
 .icone-whatsapp {
     width: 28px;
     height: 28px;
-}
-
-@media (max-width: 768px) {
-  .cabecalho-conteudo {
-    display: flex !important;
-    flex-direction: column !important; /* Coloca logo em cima e botão embaixo */
-    align-items: center !important;
-    gap: 10px !important;               /* Espaço entre a logo e o botão */
-    padding: 12px 15px !important;
-  }
-
-  /* Agora a logo pode ter um tamanho bem legível */
-  .menu-logo img {
-    max-width: 160px !important;
-    height: auto !important;
-  }
-
-  /* O botão fica bonito e centralizado */
-  .botao-contato-topo {
-    font-size: 0.8rem !important;
-    padding: 8px 16px !important;
-    width: auto !important;
-  }
 }

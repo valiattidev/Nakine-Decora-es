@@ -271,6 +271,30 @@
           });
       });
   });
+  let ultimoScroll = 0;
+const header = document.querySelector('.cabecalho-principal'); // use a classe do seu cabeçalho
+
+window.addEventListener('scroll', () => {
+  const scrollAtual = window.scrollY;
+
+  // Garante que o header fique visível no topo absoluto da página
+  if (scrollAtual <= 0) {
+    header.classList.remove('header-escondido');
+    return;
+  }
+
+  // Se rolou para baixo (e passou de 50px), esconde o header
+  if (scrollAtual > ultimoScroll && scrollAtual > 50) {
+    header.classList.add('header-escondido');
+  } 
+  // Se rolou para cima, mostra o header novamente
+  else if (scrollAtual < ultimoScroll) {
+    header.classList.remove('header-escondido');
+  }
+
+  ultimoScroll = scrollAtual;
+});
+
 </script>
 
 </body>
