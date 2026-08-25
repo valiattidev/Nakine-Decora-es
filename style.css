@@ -510,26 +510,24 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Espaçamento e alinhamento no cabeçalho */
   .cabecalho-conteudo {
     display: flex !important;
-    justify-content: space-between !important;
+    flex-direction: column !important; /* Coloca logo em cima e botão embaixo */
     align-items: center !important;
-    gap: 12px !important; /* Afasta a logo do botão */
-    padding: 10px 12px !important;
+    gap: 10px !important;               /* Espaço entre a logo e o botão */
+    padding: 12px 15px !important;
   }
 
-  /* Reduz levemente a imagem da logo */
+  /* Agora a logo pode ter um tamanho bem legível */
   .menu-logo img {
-    max-width: 120px !important;
+    max-width: 160px !important;
     height: auto !important;
   }
 
-  /* Ajusta o botão de orçamento no celular */
+  /* O botão fica bonito e centralizado */
   .botao-contato-topo {
-    font-size: 0.75rem !important; /* Reduz o texto */
-    padding: 8px 10px !important;  /* Reduz as bordas internas do botão */
-    text-align: center !important;
-    white-space: nowrap !important;
+    font-size: 0.8rem !important;
+    padding: 8px 16px !important;
+    width: auto !important;
   }
 }
