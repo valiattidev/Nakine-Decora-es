@@ -509,18 +509,27 @@ body {
     height: 28px;
 }
 
-/* Ajuste de espaçamento para telas de celular */
 @media (max-width: 768px) {
+  /* Espaçamento e alinhamento no cabeçalho */
   .cabecalho-conteudo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px; /* Cria uma distância mínima entre a logo e o botão */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 12px !important; /* Afasta a logo do botão */
+    padding: 10px 12px !important;
   }
 
-  .menu-logo img, 
-  .logo-img {
-    max-width: 140px; /* Reduz levemente a logo no celular para não empurrar o botão */
-    height: auto;
+  /* Reduz levemente a imagem da logo */
+  .menu-logo img {
+    max-width: 120px !important;
+    height: auto !important;
+  }
+
+  /* Ajusta o botão de orçamento no celular */
+  .botao-contato-topo {
+    font-size: 0.75rem !important; /* Reduz o texto */
+    padding: 8px 10px !important;  /* Reduz as bordas internas do botão */
+    text-align: center !important;
+    white-space: nowrap !important;
   }
 }
