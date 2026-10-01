@@ -73,9 +73,9 @@ button, input, textarea { font: inherit; }
 .hero-slide-index i { width: 44px; height: 1px; background: rgba(255,255,255,.65); }
 .hero-arrow, .product-carousel-arrow { position: absolute; z-index: 2; display: grid; width: 46px; height: 46px; place-items: center; border: 1px solid rgba(29,27,25,.1); border-radius: 50%; background: rgba(255,253,249,.92); color: var(--ink); box-shadow: 0 5px 18px rgba(29,27,25,.16); cursor: pointer; font-size: 0; line-height: 1; -webkit-appearance: none; appearance: none; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease, opacity .2s ease; }
 .hero-arrow { top: 50%; transform: translateY(-50%); }
-.hero-arrow::before, .product-carousel-arrow::before { content: ""; width: 10px; height: 10px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; }
-.hero-arrow-prev::before, .product-carousel-arrow.previous::before { transform: translateX(2px) rotate(-135deg); }
-.hero-arrow-next::before, .product-carousel-arrow.next::before { transform: translateX(-2px) rotate(45deg); }
+.hero-arrow::before, .product-carousel-arrow::before, .back-to-top::before { position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; content: ""; }
+.hero-arrow-prev::before, .product-carousel-arrow.previous::before { transform: translate(-50%, -50%) rotate(-135deg); }
+.hero-arrow-next::before, .product-carousel-arrow.next::before { transform: translate(-50%, -50%) rotate(45deg); }
 .hero-arrow:hover, .product-carousel-arrow:hover:not(:disabled) { border-color: var(--gold); background: var(--gold); color: #fff; box-shadow: 0 7px 20px rgba(152,117,54,.3); }
 .hero-arrow-prev { left: 20px; }
 .hero-arrow-next { right: 20px; }
@@ -129,6 +129,7 @@ h1, h2, h3 { color: var(--ink); font-family: Georgia, serif; font-weight: 400; l
 .section-heading h2 { margin-top: 14px; font-size: clamp(2.35rem, 4vw, 4rem); letter-spacing: -.035em; }
 .section-heading p { margin-top: 16px; color: var(--muted); }
 .service-grid, .value-grid, .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.selection-week-grid { max-width: 800px; margin: 0 auto; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .service-card { min-height: 265px; padding: 32px; border: 1px solid var(--line); background: var(--paper); transition: transform .3s var(--ease), box-shadow .3s ease; }
 .service-card:hover { transform: translateY(-8px); box-shadow: var(--soft-shadow); }
 .service-index { color: var(--gold-deep); font-family: Georgia, serif; font-size: 1.1rem; }
@@ -136,6 +137,7 @@ h1, h2, h3 { color: var(--ink); font-family: Georgia, serif; font-weight: 400; l
 .service-card p, .value-card p { color: var(--muted); font-size: .92rem; }
 .split { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 82px; }
 .split-image { width: 100%; height: 500px; object-fit: cover; }
+.split-product-image { background: #fff; object-fit: contain; padding: 24px; }
 .split-copy h2 { margin-top: 15px; font-size: clamp(2.35rem, 4vw, 3.8rem); }
 .split-copy p { max-width: 510px; margin: 20px 0 28px; color: var(--muted); }
 .text-link { color: var(--gold-deep); font-size: .8rem; font-weight: 800; letter-spacing: 1.3px; text-decoration: none; text-transform: uppercase; }
@@ -208,7 +210,7 @@ h1, h2, h3 { color: var(--ink); font-family: Georgia, serif; font-weight: 400; l
 .whatsapp { background: #25d366; }
 .instagram { background: linear-gradient(145deg, #f9ce34 0%, #ee2a7b 48%, #6228d7 100%); }
 .back-to-top { position: fixed; right: 24px; bottom: 24px; z-index: 11; display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; background: var(--ink); color: #fff; box-shadow: 0 8px 25px rgba(0,0,0,.18); cursor: pointer; font-size: 0; opacity: 0; pointer-events: none; transform: translateY(12px); visibility: hidden; transition: opacity .25s ease, transform .25s ease, visibility .25s ease, background .25s ease; -webkit-tap-highlight-color: transparent; }
-.back-to-top::before { content: ""; width: 10px; height: 10px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: translateY(3px) rotate(-45deg); }
+.back-to-top::before { transform: translate(-50%, -50%) rotate(-45deg); }
 .back-to-top.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); visibility: visible; }
 .back-to-top:hover { background: var(--gold-deep); }
 .back-to-top:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
