@@ -1,3 +1,4 @@
+// ==================== INICIALIZACAO ====================
 document.documentElement.classList.add('js-enabled');
 
 const menuToggle = document.querySelector('.menu-toggle');
@@ -6,17 +7,22 @@ const siteNav = document.querySelector('.site-nav');
 menuToggle?.addEventListener('click', () => {
     const isOpen = siteNav.classList.toggle('is-open');
     menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
     menuToggle.textContent = isOpen ? '×' : '☰';
+    window.dispatchEvent(new Event('resize'));
 });
 
 document.querySelectorAll('.site-nav a').forEach(link => {
     link.addEventListener('click', () => {
         siteNav.classList.remove('is-open');
         menuToggle?.setAttribute('aria-expanded', 'false');
+        menuToggle?.setAttribute('aria-label', 'Abrir menu');
         if (menuToggle) menuToggle.textContent = '☰';
+        window.dispatchEvent(new Event('resize'));
     });
 });
 
+// ==================== BOTOES SOCIAIS ARRASTAVEIS ====================
 document.querySelectorAll('.social-floaters').forEach(floaters => {
     const whatsappButton = floaters.querySelector('.whatsapp');
     if (whatsappButton) {
@@ -33,13 +39,23 @@ document.querySelectorAll('.social-floaters').forEach(floaters => {
     floaters.querySelectorAll('a').forEach(socialButton => {
         const platform = socialButton.classList.contains('instagram') ? 'instagram' : 'whatsapp';
         const storageKey = `nakine-${platform}-position`;
+        const siteHeader = document.querySelector('.site-header');
         socialButton.title = `Segure e arraste para reposicionar ${platform === 'instagram' ? 'o Instagram' : 'o WhatsApp'}`;
         socialButton.draggable = false;
 
-        const clampPosition = (left, top) => ({
-            left: Math.min(window.innerWidth - socialButton.offsetWidth - 8, Math.max(8, left)),
-            top: Math.min(window.innerHeight - socialButton.offsetHeight - 8, Math.max(8, top))
-        });
+        const clampPosition = (left, top) => {
+            const sideMargin = 8;
+            const headerBounds = siteHeader?.getBoundingClientRect();
+            const navBounds = siteNav?.classList.contains('is-open') ? siteNav.getBoundingClientRect() : null;
+            const headerBottom = Math.max(headerBounds?.bottom ?? 0, navBounds?.bottom ?? 0);
+            const minimumTop = headerBottom + sideMargin;
+            const maximumTop = Math.max(minimumTop, window.innerHeight - socialButton.offsetHeight - sideMargin);
+
+            return {
+                left: Math.min(window.innerWidth - socialButton.offsetWidth - sideMargin, Math.max(sideMargin, left)),
+                top: Math.min(maximumTop, Math.max(minimumTop, top))
+            };
+        };
         const applyPosition = (left, top, save = false) => {
             const position = clampPosition(left, top);
             socialButton.classList.add('is-positioned');
@@ -123,6 +139,7 @@ document.querySelectorAll('.social-floaters').forEach(floaters => {
     });
 });
 
+// ==================== BOTAO VOLTAR AO TOPO ====================
 const backToTop = document.createElement('button');
 backToTop.className = 'back-to-top';
 backToTop.type = 'button';
@@ -143,6 +160,7 @@ backToTop.addEventListener('click', () => {
 });
 updateBackToTop();
 
+// ==================== CARROSSEL PRINCIPAL ====================
 const heroCarousel = document.querySelector('[data-hero-carousel]');
 if (heroCarousel) {
     const slides = Array.from(heroCarousel.querySelectorAll('.hero-slide'));
@@ -239,6 +257,7 @@ if (heroCarousel) {
     startAutoplay();
 }
 
+// ==================== CARROSSEIS DE PRODUTOS ====================
 document.querySelectorAll('[data-product-carousel]').forEach(carousel => {
     const windowElement = carousel.querySelector('.product-carousel-window');
     const track = carousel.querySelector('.product-carousel-track');
@@ -284,6 +303,7 @@ document.querySelectorAll('[data-product-carousel]').forEach(carousel => {
     updateCarousel();
 });
 
+// ==================== ANIMACAO DE ENTRADA ====================
 const revealObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -298,6 +318,7 @@ document.querySelectorAll('.reveal').forEach(element => {
     else element.classList.add('is-visible');
 });
 
+// ==================== FILTRO DO CATALOGO ====================
 const filterButtons = document.querySelectorAll('[data-filter]');
 const productCards = document.querySelectorAll('[data-product-category]');
 filterButtons.forEach(button => {
@@ -311,6 +332,7 @@ filterButtons.forEach(button => {
     });
 });
 
+// ==================== FORMULARIO DE CONTATO ====================
 const form = document.querySelector('[data-contact-form]');
 const formFeedback = document.querySelector('.form-feedback');
 form?.addEventListener('submit', event => {
