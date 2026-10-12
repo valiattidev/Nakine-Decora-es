@@ -1,6 +1,20 @@
 // ==================== INICIALIZACAO ====================
 document.documentElement.classList.add('js-enabled');
 
+const brandOpening = document.querySelector('[data-brand-opening]');
+if (brandOpening) {
+    brandOpening.addEventListener('animationend', event => {
+        if (event.target === brandOpening && ['brand-opening-exit', 'brand-opening-reduced-exit'].includes(event.animationName)) {
+            brandOpening.remove();
+        }
+    });
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+        brandOpening.classList.add('is-playing');
+        window.setTimeout(() => brandOpening.classList.add('is-closing'), 1050);
+        window.setTimeout(() => brandOpening.remove(), 2200);
+    }));
+}
+
 const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.querySelector('.site-nav');
 
@@ -26,6 +40,7 @@ document.querySelectorAll('.site-nav a').forEach(link => {
 document.querySelectorAll('.social-floaters').forEach(floaters => {
     const whatsappButton = floaters.querySelector('.whatsapp');
     if (whatsappButton) {
+        whatsappButton.href = 'https://wa.me/554291211496?text=Ol%C3%A1!%20Vim%20do%20site%20da%20Nakine%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20produtos.';
         const whatsappIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         whatsappIcon.setAttribute('viewBox', '0 0 24 24');
         whatsappIcon.setAttribute('aria-hidden', 'true');
@@ -50,7 +65,6 @@ document.querySelectorAll('.social-floaters').forEach(floaters => {
             const headerBottom = Math.max(headerBounds?.bottom ?? 0, navBounds?.bottom ?? 0);
             const minimumTop = headerBottom + sideMargin;
             const maximumTop = Math.max(minimumTop, window.innerHeight - socialButton.offsetHeight - sideMargin);
-
             return {
                 left: Math.min(window.innerWidth - socialButton.offsetWidth - sideMargin, Math.max(sideMargin, left)),
                 top: Math.min(maximumTop, Math.max(minimumTop, top))
@@ -156,7 +170,7 @@ const updateBackToTop = () => {
 window.addEventListener('scroll', updateBackToTop, { passive: true });
 window.addEventListener('resize', updateBackToTop);
 backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 updateBackToTop();
 
@@ -304,6 +318,7 @@ document.querySelectorAll('[data-product-carousel]').forEach(carousel => {
 });
 
 // ==================== ANIMACAO DE ENTRADA ====================
+const revealElements = Array.from(document.querySelectorAll('.reveal'));
 const revealObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -311,12 +326,28 @@ const revealObserver = 'IntersectionObserver' in window ? new IntersectionObserv
             revealObserver.unobserve(entry.target);
         }
     });
-}, { threshold: .12 }) : null;
+}, { threshold: .01, rootMargin: '0px 0px 72px 0px' }) : null;
 
-document.querySelectorAll('.reveal').forEach(element => {
-    if (revealObserver) revealObserver.observe(element);
-    else element.classList.add('is-visible');
-});
+const revealVisibleElements = () => {
+    revealElements.forEach(element => {
+        if (element.classList.contains('is-visible')) return;
+        if (element.getBoundingClientRect().top <= window.innerHeight + 72) {
+            element.classList.add('is-visible');
+            revealObserver?.unobserve(element);
+        }
+    });
+};
+
+if (revealObserver) {
+    revealElements.forEach(element => revealObserver.observe(element));
+    document.documentElement.classList.add('reveal-ready');
+    window.addEventListener('scroll', revealVisibleElements, { passive: true });
+    window.addEventListener('resize', revealVisibleElements);
+    document.addEventListener('visibilitychange', revealVisibleElements);
+    revealVisibleElements();
+} else {
+    revealElements.forEach(element => element.classList.add('is-visible'));
+}
 
 // ==================== FILTRO DO CATALOGO ====================
 const filterButtons = document.querySelectorAll('[data-filter]');
